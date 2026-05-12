@@ -7,6 +7,14 @@ const
 type
   numero = integer;
 
+type Users = record
+  name: string;
+  age: integer;
+  height: double;
+  hobby : array[1..3] of char;
+end;
+
+
 var
   r, d, c : real;
   contador : integer;
@@ -15,7 +23,7 @@ var
   j : integer;
   arrayNumeros : array[1..5] of integer;
   matrizNumeros : array[1..3, 1..5] of integer;
-
+  user1, user2 : Users;
 
 procedure sayHello();
 begin
@@ -44,11 +52,31 @@ begin
   funcSoma := resultado;
 end;
 
+
 begin
   sayHello();
   say('Alice', 'blue', 30);
   soma(5, 10);
   writeln('Soma: ', funcSoma(7, 3));
+
+  user1.name := 'Bob';
+  writeln('User Name: ', user1.name);
+
+  with user2 do
+  begin
+    name := 'Charlie';
+    age := 25;
+    height := 1.75;
+    hobby[1] := 'R';
+    hobby[2] := 'S';
+    hobby[3] := 'T';
+  end;
+
+  writeln('User2 Name: ', user2.name);
+  writeln('User2 Age: ', user2.age);
+  writeln('User2 Height: ', user2.height:0:2);
+  writeln('User2 Hobby: ', user2.hobby[1], user2.hobby[2], user2.hobby[3]);
+
 
 //   write('Raio do circulo: ');
 //   readln(r);
